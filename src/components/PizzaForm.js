@@ -15,8 +15,8 @@ export default function PizzaForm(props) {
   }
 
   const onChange = event => {
-    const { name, values, checked, type } = event.target
-    const valueToUse = type === 'checkbox' ? checked : values;
+    const { name, value, checked, type } = event.target
+    const valueToUse = type === 'checkbox' ? checked : value;
     change(name, valueToUse)
   }
   return (
@@ -35,16 +35,6 @@ export default function PizzaForm(props) {
             value={values.name}
             onChange={onChange}
             name='name'
-            type='text'
-            />
-          </label>
-
-          <label>Email:
-            <input 
-            id='email-input'
-            value={values.email}
-            onChange={onChange}
-            name='email'
             type='text'
             />
           </label>
@@ -150,11 +140,8 @@ export default function PizzaForm(props) {
             type='text'
             />
           </label>
-
-
-
-
-        <button id='order-button' disabled={disabled}>Order Pizza</button>
+          
+        <button id='order-button' disabled={disabled ? true : false}>Order Pizza</button>
       </div>
     </form>
   )

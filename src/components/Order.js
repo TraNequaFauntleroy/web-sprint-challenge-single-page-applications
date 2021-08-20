@@ -8,10 +8,26 @@ function Order({ details }) {
   return (
     <div className='order container'>
       <h2>{details.name}</h2>
-      <p>{details.email && `Email: ${details.email}`}</p>
-      <p>{details.size && `Size: ${details.size}`}</p>
-      <p>{details.toppings1 && `Topping1: ${details.toppings1}`}</p>
-      <p>{details.toppings2 && `Topping2: ${details.toppings2}`}</p>
+      <p>Size: {details.size}</p>
+      {
+        !!details.topping1 && !!details.toppings1.length &&
+        <div>
+          Meat Topping(s):
+          <ul>
+            {details.toppings.map((topping, idx) => <li key={idx}>{topping}</li>)}
+          </ul>
+        </div>
+      }
+      {
+        !!details.topping2 && !!details.toppings2.length &&
+        <div>
+          Veggie Topping(s):
+          <ul>
+            {details.toppings.map((topping, idx) => <li key={idx}>{topping}</li>)}
+          </ul>
+        </div>
+      }
+      <p>Special Instructions: {details.special}</p>
     </div>
   )
 }

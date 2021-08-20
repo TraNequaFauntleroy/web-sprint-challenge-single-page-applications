@@ -2,7 +2,8 @@ import React, {useState, useEffect} from "react";
 import { Route, Link } from "react-router-dom";
 import Home from './components/Home'
 import PizzaForm from './components/PizzaForm'
-// import Order from './components/Order'
+import Order from './components/Order'
+import './index.css'
 import axios from 'axios';
 import * as yup from 'yup';
 import schema from './validation/formSchema'
@@ -10,7 +11,6 @@ import schema from './validation/formSchema'
 
 const initialFormValues = {
   name: '',
-  email: '',
   size: '',
   toppings1: false,
   toppings2: false,
@@ -19,7 +19,6 @@ const initialFormValues = {
 
 const initialFormErrors = {
   name: '',
-  email: '',
   toppings1: '',
   toppings2: '',
   size: '',
@@ -27,7 +26,7 @@ const initialFormErrors = {
 }
 
 const initialOrder = []
-const initialDisabled = false;
+const initialDisabled = true;
 
 
 const App = () => {
@@ -35,7 +34,6 @@ const App = () => {
   const [formValues, setFormValues] = useState(initialFormValues)
   const [formErrors, setFormErrors] = useState(initialFormErrors)
   const [disabled, setDisabled] = useState(initialDisabled)
-
 
 
   const getOrders = () => {
@@ -73,9 +71,8 @@ const App = () => {
   }
 
   const formSubmit = () => {
-    const newOrder ={
+    const newOrder = {
       name: formValues.name.trim(),
-      email: formValues.email.trim(), 
       toppings1: ['beef', 'chicken', 'sausage', 'pepperoni'].filter(topping => !!formValues[topping]),
       toppings2: ['spinach', 'olives', 'red onions', 'tomatoes'].filter(topping => !!formValues[topping]),
       size:formValues.size,
@@ -94,9 +91,7 @@ const App = () => {
         setDisabled(!valid)
       })
   }, [formValues])
-
-
-
+ console.log(orders)
   return (
     <div className="App">
       <nav>
@@ -118,16 +113,17 @@ const App = () => {
       <Route exact path='/'>
         <Home />
       </Route>
-    
-          {/* {
-            orders.map(order => {
-              return (
-                <Order key={order.id} details={order.name} />
-              )
-            })
-          } */}
+      {
+        orders.map(order => {
+          return (
+            <Order key={order.id} details={order.name} />
+          )
+        })
+      }
+       
     </div>
 
   );
 };
 export default App;
+
