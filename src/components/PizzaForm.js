@@ -52,7 +52,7 @@ export default function PizzaForm(props) {
             </select>
           </label>
 
-          <div className='form-group checkboxes toppings1'>
+          <div className='form-group-checkboxes-toppings1'>
             <h4>Meat Toppings</h4>
             <label>Beef
               <input
@@ -92,7 +92,7 @@ export default function PizzaForm(props) {
           </div>
         </div>
 
-        <div className='form-group checkboxes toppings2'>
+        <div className='form-group-checkboxes-toppings2'>
             <h4>Veggie Toppings</h4>
             <label>Spinach
               <input

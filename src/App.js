@@ -4,7 +4,6 @@ import Home from './components/Home'
 import PizzaForm from './components/PizzaForm'
 import Order from './components/Order'
 import './index.css'
-import axios from 'axios';
 import * as yup from 'yup';
 import schema from './validation/formSchema'
 

@@ -12,8 +12,8 @@ export default function Home() {
         <div className='home-wrapper'>
             <img
                 className='home-image'
-                src='https://images.unsplash.com/photo-1537734796389-e1fc293cf856?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHBpenphfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60'
-                alt='man holding a ball of pizza dough'
+                src='https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGl6emF8ZW58MHx8MHx8&auto=format&fit=crop&w=700&q=60'
+                alt='pizza with toppings'
             />
             <Link to='/pizza'>
             <button
