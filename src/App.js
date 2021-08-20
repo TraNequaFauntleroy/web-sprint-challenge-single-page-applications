@@ -24,7 +24,6 @@ const initialFormErrors = {
   size: '',
   special: ''
 }
-
 const initialOrder = []
 const initialDisabled = true;
 
@@ -35,25 +34,6 @@ const App = () => {
   const [formErrors, setFormErrors] = useState(initialFormErrors)
   const [disabled, setDisabled] = useState(initialDisabled)
 
-
-  const getOrders = () => {
-    axios.get('https://reqres.in/api/order')
-      .then(res => {
-        setOrders(res.data)
-      })
-      .catch(err => console.error(err))
-  }
-
-  const postNewOrder = newOrder => {
-    axios.post('https://reqres.in/api/order')
-      .then(res => {
-        setOrders([res.data, ...newOrder])
-      })
-      .catch(err => {
-        console.error(err)
-      })
-    setFormValues(initialFormValues);
-  }
 
   const validate = (name, value) => {
     yup.reach(schema, name)
@@ -78,12 +58,10 @@ const App = () => {
       size:formValues.size,
       special: formValues.special.trim(), 
     }
-    postNewOrder(newOrder);
+    setOrders([...orders, newOrder ]);
+    console.log(orders)
   }
 
-  useEffect(() => {
-    getOrders()
-  }, [])
 
   useEffect(() => {
     schema.isValid(formValues)
@@ -91,7 +69,7 @@ const App = () => {
         setDisabled(!valid)
       })
   }, [formValues])
- console.log(orders)
+ 
   return (
     <div className="App">
       <nav>
@@ -114,13 +92,13 @@ const App = () => {
         <Home />
       </Route>
       {
-        orders.map(order => {
+       orders ? 
+        Object.keys(orders).map((key, index) => {
           return (
-            <Order key={order.id} details={order.name} />
+            <Order key={index} details={orders[key]} />
           )
-        })
+        }) : null
       }
-       
     </div>
 
   );

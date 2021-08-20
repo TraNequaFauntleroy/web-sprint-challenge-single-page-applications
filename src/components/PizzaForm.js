@@ -46,9 +46,8 @@ export default function PizzaForm(props) {
             onChange={onChange}
             name='size'>
               <option value=''>- Select an option -</option>
+              <option value='slice'>A Slice</option>
               <option value='personal'>Personal</option>
-              <option value='10in'>10 Inch</option>
-              <option value='12in'>12 Inch</option>
               <option value='party'>Party</option>
             </select>
           </label>

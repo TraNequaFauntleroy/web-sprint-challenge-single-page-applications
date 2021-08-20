@@ -10,13 +10,13 @@ function Order({ details }) {
       <h2>{details.name}</h2>
       <p>Size: {details.size}</p>
       {
-        !!details.topping1 && !!details.toppings1.length &&
+        !!details.topping1 && !!details.toppings1.length ?
         <div>
           Meat Topping(s):
           <ul>
             {details.toppings.map((topping, idx) => <li key={idx}>{topping}</li>)}
           </ul>
-        </div>
+        </div> : null
       }
       {
         !!details.topping2 && !!details.toppings2.length &&
