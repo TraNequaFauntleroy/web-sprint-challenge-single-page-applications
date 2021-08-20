@@ -13,8 +13,14 @@ const formSchema = yup.object().shape({
     size: yup 
         .string()
         .oneOf(['personal', '10 inch', '12 inch', 'party'], 'Size is required'),
-    toppings1: yup.boolean(),
-    toppings2:yup.boolean(),
+    beef: yup.boolean().oneOf([true]),
+    chicken: yup.boolean().oneOf([true]),
+    sausage: yup.boolean().oneOf([true]),
+    pepperoni: yup.boolean().oneOf([true]),
+    spinach: yup.boolean().oneOf([true]),
+    redOnions: yup.boolean().oneOf([true]),
+    tomatoes: yup.boolean().oneOf([true]),
+    olives: yup.boolean().oneOf([true]),
     special: yup
         .string()
         .trim()

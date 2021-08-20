@@ -54,7 +54,7 @@ export default function PizzaForm(props) {
             id='size-dropdown'
             value={values.size}
             onChange={onChange}
-            name='name'>
+            name='size'>
               <option value=''>- Select an option -</option>
               <option value='personal'>Personal</option>
               <option value='10in'>10 Inch</option>
@@ -101,57 +101,60 @@ export default function PizzaForm(props) {
               />
             </label>
           </div>
+        </div>
 
-          <div className='form-group checkboxes toppings2'>
-              <h4>Veggie Toppings</h4>
-              <label>Spinach
-                <input
-                  type='checkbox'
-                  name='spianch'
-                  checked={values.spinach}
-                  onChange={onChange}
-                />
-              </label>
-
-              <label>Olives
-                <input
-                  type='checkbox'
-                  name='olives'
-                  checked={values.olives}
-                  onChange={onChange}
-                />
-              </label>
-
-              <label>Red Onions
-                <input
-                  type='checkbox'
-                  name='redOnions'
-                  checked={values.redOnions}
-                  onChange={onChange}
-                />
-              </label>
-              <label>Tomatoes
-                <input
-                  type='checkbox'
-                  name='tomatoes'
-                  checked={values.tomatoes}
-                  onChange={onChange}
-                />
-              </label>
-
-              <label>Special Instructions:
-                <input 
-                id='special-text'
-                value={values.special}
+        <div className='form-group checkboxes toppings2'>
+            <h4>Veggie Toppings</h4>
+            <label>Spinach
+              <input
+                type='checkbox'
+                name='spinach'
+                checked={values.spinach}
                 onChange={onChange}
-                name='special'
-                type='text'
-                />
-              </label>
-            </div>
+              />
+            </label>
 
-            <button id='order-button' disabled={disabled}>Order Pizza</button>
-        
+            <label>Olives
+              <input
+                type='checkbox'
+                name='olives'
+                checked={values.olives}
+                onChange={onChange}
+              />
+            </label>
+
+            <label>Red Onions
+              <input
+                type='checkbox'
+                name='redOnions'
+                checked={values.redOnions}
+                onChange={onChange}
+              />
+            </label>
+            <label>Tomatoes
+              <input
+                type='checkbox'
+                name='tomatoes'
+                checked={values.spinach}
+                onChange={onChange}
+              />
+            </label>
+        </div>
+
+        <label>Special Instructions:
+            <input 
+            id='special-text'
+            value={values.special}
+            onChange={onChange}
+            name='special'
+            type='text'
+            />
+          </label>
+
+
+
+
+        <button id='order-button' disabled={disabled}>Order Pizza</button>
       </div>
     </form>
   )

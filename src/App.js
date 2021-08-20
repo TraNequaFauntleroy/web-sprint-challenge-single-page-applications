@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import { Route, Link } from "react-router-dom";
 import Home from './components/Home'
 import PizzaForm from './components/PizzaForm'
-import Order from './components/Order'
+// import Order from './components/Order'
 import axios from 'axios';
 import * as yup from 'yup';
 import schema from './validation/formSchema'
@@ -27,7 +27,7 @@ const initialFormErrors = {
 }
 
 const initialOrder = []
-const initialDisabled = true;
+const initialDisabled = false;
 
 
 const App = () => {
@@ -76,8 +76,8 @@ const App = () => {
     const newOrder ={
       name: formValues.name.trim(),
       email: formValues.email.trim(), 
-      toppings1: formValues.toppings1,
-      toppings2: formValues.toppings2,
+      toppings1: ['beef', 'chicken', 'sausage', 'pepperoni'].filter(topping => !!formValues[topping]),
+      toppings2: ['spinach', 'olives', 'red onions', 'tomatoes'].filter(topping => !!formValues[topping]),
       size:formValues.size,
       special: formValues.special.trim(), 
     }
@@ -100,7 +100,7 @@ const App = () => {
   return (
     <div className="App">
       <nav>
-        <h1 className='home-header'>Let's Make A Pizza</h1>
+        <h1 className='home-header'>Lambda Eats</h1>
         <div className='nav-links'>
           <Link to='/'>Home</Link>
           <Link to='/pizza'>Order Pizza</Link>
